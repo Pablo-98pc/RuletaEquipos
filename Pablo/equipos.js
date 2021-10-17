@@ -9,11 +9,15 @@ function capture() {
   } 
   newName.appendChild(contenido)
   lista.appendChild(newName)
+  
 }
 
-function enterKeyPressed(event) {
+function enterPressed(event) {
   let tecla = event.keyCode
   if (tecla === 13) {
      document.getElementById("name-btn").click();
   } 
+}
+function clean() {
+  document.getElementById("user").value = "";
 }
