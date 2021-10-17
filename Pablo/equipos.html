@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
-        <input type="text" name="user" id="user" placeholder="escriba un nombre">
-        <button type="button" onclick="capture()">Enviar</button>
+    <form onsubmit="return false;">
+        <input type="text" class="username" onkeypress="enterKeyPressed(event)" id="user" placeholder="escriba un nombre">
+        <button type="button" id="name-btn" onclick="capture()">Enviar</button>
     </form>
     <div id="name-generated"><ul>
         
