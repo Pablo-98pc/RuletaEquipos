@@ -12,13 +12,19 @@
         <button type="button" id="name-btn"  onclick="capture(); clean()">Enviar</button>
 
         <label for="members-amount">¿Cuántos integrantes quieres que tenga el equipo?</label>
-        <input type="number" name="members-amount" id="members-amount" placeholder="2">
+        <input type="number" name="members-amount" id="members-amount" value="2" min="2">
         <button type="button" onclick="teamSorter()">Enviar</button>
     
     </form>
     <div id="name-generated"><ul>
         
     </ul></div>
+
+    <div id="team-generated">
+        <ul>
+
+        </ul>
+    </div>
 </body>
 <script src="equipos.js"></script>    
 </html>
