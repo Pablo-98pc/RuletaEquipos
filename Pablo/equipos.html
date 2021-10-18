@@ -7,13 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
-        <input type="text" name="user" id="user" placeholder="escriba un nombre">
-        <button type="button" onclick="capture()">Enviar</button>
+    <form onsubmit="return false;">
+        <input type="text" class="username" onkeypress="enterPressed(event)" id="user" placeholder="escriba un nombre" autocomplete="off">
+        <button type="button" id="name-btn"  onclick="capture(); clean()">Enviar</button>
 
         <label for="members-amount">¿Cuántos integrantes quieres que tenga el equipo?</label>
         <input type="number" name="members-amount" id="members-amount" placeholder="2">
         <button type="button" onclick="teamSorter()">Enviar</button>
+    
     </form>
     <div id="name-generated"><ul>
         
