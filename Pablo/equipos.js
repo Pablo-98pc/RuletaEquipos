@@ -7,9 +7,16 @@ function capture() {
     alert("se requiere un nombre");
     return false
   }
-  newName.appendChild(contenido)
-  lista.appendChild(newName)
 
+  newName.appendChild(contenido);
+  let deleteEvent = document.createAttribute("ondblclick");
+  deleteEvent.value = "removeElement(this)";
+  newName.setAttributeNode(deleteEvent);
+  lista.appendChild(newName);
+}
+
+function removeElement(element) {
+  element.remove();
 }
 
 function teamSorter() {
