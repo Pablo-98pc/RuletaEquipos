@@ -1,11 +1,14 @@
+let nameList = document.getElementsByClassName("name");
+let teamsList = document.getElementsByClassName("sortedTeam");
 function capture() {
   let nombre = document.getElementById("user").value;
   let lista = document.getElementById("name-generated");
   let newName = document.createElement("li");
+  newName.classList.add('name');
   let contenido = document.createTextNode(nombre);
   if (nombre == "") {
     alert("se requiere un nombre");
-    return false
+    return false;
   }
 
   newName.appendChild(contenido);
@@ -20,7 +23,7 @@ function removeElement(element) {
 }
 
 function teamSorter() {
-  let teamMembers = Array.from(document.getElementsByTagName("li"));
+  let teamMembers = Array.from(nameList);
   let membersAmount = document.getElementById("members-amount").value;
   let team = [];
   let teamsList = document.getElementById("team-generated");
@@ -39,15 +42,15 @@ function teamSorter() {
     team.push(member);
     teamMembers.splice(randomIndex, 1);
     if (team.length == membersAmount) {
-      if (teamMembers.length % membersAmount != 0) {
+      /*if (teamMembers.length % membersAmount != 0) {
         team.push(teamMembers[0].innerHTML);
         teamMembers.splice(0, 1);
-      }
+      }*/
       let newTeam = document.createElement("li");
       newTeam.innerHTML = team.join(" - ");
+      newTeam.classList.add('sortedTeam');
       teamsList.appendChild(newTeam);
-      team.splice(0, 2);
-      continue;
+      team.splice(0, team.length);
     }
   }
 }
