@@ -1,69 +1,84 @@
 let nameList = document.getElementsByClassName("name");
-let teamsList = document.getElementsByClassName("sortedTeam");
-function capture() {
-  let nombre = document.getElementById("user").value;
-  let lista = document.getElementById("name-generated");
-  let newName = document.createElement("li");
-  newName.classList.add('name');
-  let contenido = document.createTextNode(nombre);
-  if (nombre == "") {
-    alert("se requiere un nombre");
-    return false;
-  }
 
-  newName.appendChild(contenido);
-  let deleteEvent = document.createAttribute("ondblclick");
-  deleteEvent.value = "removeElement(this)";
-  newName.setAttributeNode(deleteEvent);
-  lista.appendChild(newName);
+function capture() {
+    let nombre = document.getElementById("user").value;
+    let lista = document.getElementById("name-generated");
+    let newName = document.createElement("li");
+    newName.classList.add('name');
+    let contenido = document.createTextNode(nombre);
+
+    if (nombre == "") {
+        alert("Se requiere un nombre");
+        return false;
+    }
+
+    let sortedGroup = document.getElementsByClassName("sortedTeam");
+    if (sortedGroup.length != 0) {
+        removeElement(document.getElementById("team-generated"));
+        anotherList = document.createElement("ul");
+        anotherList.setAttribute("id", "team-generated");
+        document.getElementById("team-output").appendChild(anotherList);
+    }
+
+    newName.appendChild(contenido);
+    let deleteEvent = document.createAttribute("ondblclick");
+    deleteEvent.value = "removeElement(this)";
+    newName.setAttributeNode(deleteEvent);
+    lista.appendChild(newName);
 }
 
 function removeElement(element) {
-  element.remove();
+    element.remove();
 }
 
 function teamSorter() {
-  let teamMembers = Array.from(nameList);
-  let membersAmount = document.getElementById("members-amount").value;
-  let team = [];
-  let teamsList = document.getElementById("team-generated");
+    let teamMembers = Array.from(nameList);
+    let membersAmount = document.getElementById("members-amount").value;
+    let team = [];
+    let teamsList = document.getElementById("team-generated");
+    let sortedTeams = [];
 
-  if (membersAmount < 2) {
-    alert("El mínimo es equipos de 2 integrantes. ¡Intenténtalo de nuevo!");
-    return false;
-  } else if (membersAmount > teamMembers.length) {
-    alert("¡No puedes hacer tantos equipos con tan poca gente! Consigue más personas o reduce los equipos.")
-    return false;
-  }
-
-  while (teamMembers.length != 0) {
-    let randomIndex = Math.floor(Math.random() * teamMembers.length);
-    let member = teamMembers[randomIndex].innerHTML;
-    team.push(member);
-    teamMembers.splice(randomIndex, 1);
-    if (team.length == membersAmount) {
-      /*if (teamMembers.length % membersAmount != 0) {
-        team.push(teamMembers[0].innerHTML);
-        teamMembers.splice(0, 1);
-      }*/
-      let newTeam = document.createElement("li");
-      newTeam.innerHTML = team.join(" - ");
-      newTeam.classList.add('sortedTeam');
-      teamsList.appendChild(newTeam);
-      team.splice(0, team.length);
+    if (membersAmount < 2) {
+        alert("El mínimo es equipos de 2 integrantes. ¡Intenténtalo de nuevo!");
+        return false;
+    } else if (membersAmount > teamMembers.length) {
+        alert("¡No puedes hacer tantos equipos con tan poca gente! Consigue más personas o reduce los equipos.")
+        return false;
     }
-  }
+
+    while (teamMembers.length != 0) {
+        let randomIndex = Math.floor(Math.random() * teamMembers.length);
+        let member = teamMembers[randomIndex].innerHTML;
+        team.push(member);
+        teamMembers.splice(randomIndex, 1);
+        if (team.length == membersAmount) {
+            sortedTeams.push(team);
+            team = [];
+        }
+    }
+
+    if (team.length != 0) {
+        let randomTeam = Math.floor(Math.random() * sortedTeams.length);
+        for (i = 0; i < team.length; i++) {
+            sortedTeams[randomTeam].push(team[i]);
+            team.splice(i, 1);
+        }
+    }
+
+    for (i = 0; i < sortedTeams.length; i++) {
+        let newTeam = document.createElement("li");
+        newTeam.innerHTML = sortedTeams[i].join(" - ");
+        newTeam.classList.add("sortedTeam");
+        teamsList.appendChild(newTeam);
+    }
 }
 
 function enterPressed(event) {
-  let tecla = event.keyCode
-  if (tecla === 13) {
-    document.getElementById("name-btn").click();
-  }
+    let tecla = event.keyCode
+    if (tecla === 13) {
+        document.getElementById("name-btn").click();
+    }
 }
 function clean() {
-  document.getElementById("user").value = "";
+    document.getElementById("user").value = "";
 }
-
-
-
