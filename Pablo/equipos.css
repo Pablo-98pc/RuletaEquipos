@@ -1,0 +1,25 @@
+.name {
+    list-style: none;
+}
+.name:hover {
+    text-decoration: line-through;
+    
+}
+/* texto para borrar mensaje */
+ .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+
+  .name:hover .tooltip {
+    visibility: visible;
+  }
+  
