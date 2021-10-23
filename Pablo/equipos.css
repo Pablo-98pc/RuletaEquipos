@@ -1,0 +1,15 @@
+body {
+    background: radial-gradient(circle at top left, #FF5733, #2636FF);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 85px;
+    font-style: italic;
+}
+
+li {
+    font-size: 40px;
+}

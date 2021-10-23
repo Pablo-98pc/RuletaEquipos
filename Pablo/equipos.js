@@ -42,7 +42,7 @@ function teamSorter() {
         alert("El mínimo es equipos de 2 integrantes. ¡Intenténtalo de nuevo!");
         return false;
     } else if (membersAmount > teamMembers.length) {
-        alert("¡No puedes hacer tantos equipos con tan poca gente! Consigue más personas o reduce los equipos.")
+        alert("¡No puedes hacer equipos con tan poca gente! Consigue más personas o reduce los equipos.")
         return false;
     }
 
@@ -67,7 +67,7 @@ function teamSorter() {
 
     for (i = 0; i < sortedTeams.length; i++) {
         let newTeam = document.createElement("li");
-        newTeam.innerHTML = sortedTeams[i].join(" - ");
+        newTeam.innerHTML = sortedTeams[i].join(" ~ ");
         newTeam.classList.add("sortedTeam");
         teamsList.appendChild(newTeam);
     }
