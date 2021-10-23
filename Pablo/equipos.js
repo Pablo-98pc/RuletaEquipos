@@ -20,12 +20,29 @@ function capture() {
         document.getElementById("team-output").appendChild(anotherList);
     }
 
+    let deleteMessage = document.createElement("div");
+    deleteMessage.classList.add('tooltip');
+    deleteMessage.innerHTML = "clicka dos veces para borrar";
+    newName.appendChild(deleteMessage);
+
     newName.appendChild(contenido);
     let deleteEvent = document.createAttribute("ondblclick");
     deleteEvent.value = "removeElement(this)";
     newName.setAttributeNode(deleteEvent);
     lista.appendChild(newName);
 }
+
+
+    /*let deleteMessage = document.createAttribute("onmouseenter");
+    deleteMessage.value = "overMessage(this)";
+    newName.setAttributeNode(deleteMessage);
+}
+function overMessage() {
+    let doubleClickDelete = document.createElement("p");
+    doubleClickDelete.innerHTML = "doble click para borrar";
+    newName.appendChild(doubleClickDelete);
+}*/
+
 
 function removeElement(element) {
     element.remove();
@@ -42,7 +59,11 @@ function teamSorter() {
         alert("El mínimo es equipos de 2 integrantes. ¡Intenténtalo de nuevo!");
         return false;
     } else if (membersAmount > teamMembers.length) {
+
         alert("¡No puedes hacer equipos con tan poca gente! Consigue más personas o reduce los equipos.")
+
+        alert("¡No puedes hacer tantos equipos con tan poca gente! Consigue más personas o reduce los equipos.")
+
         return false;
     }
 
@@ -67,7 +88,11 @@ function teamSorter() {
 
     for (i = 0; i < sortedTeams.length; i++) {
         let newTeam = document.createElement("li");
+
         newTeam.innerHTML = sortedTeams[i].join(" ~ ");
+
+        newTeam.innerHTML = sortedTeams[i].join(" - ");
+
         newTeam.classList.add("sortedTeam");
         teamsList.appendChild(newTeam);
     }
@@ -81,4 +106,17 @@ function enterPressed(event) {
 }
 function clean() {
     document.getElementById("user").value = "";
+
+
+}
+function resetForm() {
+    removeElement(document.getElementById("team-generated"));
+    anotherList = document.createElement("ul");
+    anotherList.setAttribute("id", "team-generated");
+    document.getElementById("team-output").appendChild(anotherList);
+    removeElement(document.getElementById("name-generated"));
+    anotherNameList = document.createElement("ul");
+    anotherNameList.setAttribute("id", "name-generated");
+    document.getElementById("name-output").appendChild(anotherNameList);
+
 }
