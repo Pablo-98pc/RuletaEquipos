@@ -33,14 +33,14 @@ function capture() {
 }
 
 
-    /*let deleteMessage = document.createAttribute("onmouseenter");
-    deleteMessage.value = "overMessage(this)";
-    newName.setAttributeNode(deleteMessage);
+/*let deleteMessage = document.createAttribute("onmouseenter");
+deleteMessage.value = "overMessage(this)";
+newName.setAttributeNode(deleteMessage);
 }
 function overMessage() {
-    let doubleClickDelete = document.createElement("p");
-    doubleClickDelete.innerHTML = "doble click para borrar";
-    newName.appendChild(doubleClickDelete);
+let doubleClickDelete = document.createElement("p");
+doubleClickDelete.innerHTML = "doble click para borrar";
+newName.appendChild(doubleClickDelete);
 }*/
 
 
@@ -59,11 +59,7 @@ function teamSorter() {
         alert("El mínimo es equipos de 2 integrantes. ¡Intenténtalo de nuevo!");
         return false;
     } else if (membersAmount > teamMembers.length) {
-
-        alert("¡No puedes hacer equipos con tan poca gente! Consigue más personas o reduce los equipos.")
-
-        alert("¡No puedes hacer tantos equipos con tan poca gente! Consigue más personas o reduce los equipos.")
-
+        alert("¡No puedes hacer equipos con tan poca gente! Consigue más personas o reduce los equipos.");
         return false;
     }
 
@@ -88,11 +84,7 @@ function teamSorter() {
 
     for (i = 0; i < sortedTeams.length; i++) {
         let newTeam = document.createElement("li");
-
         newTeam.innerHTML = sortedTeams[i].join(" ~ ");
-
-        newTeam.innerHTML = sortedTeams[i].join(" - ");
-
         newTeam.classList.add("sortedTeam");
         teamsList.appendChild(newTeam);
     }
@@ -104,11 +96,11 @@ function enterPressed(event) {
         document.getElementById("name-btn").click();
     }
 }
+
 function clean() {
     document.getElementById("user").value = "";
-
-
 }
+
 function resetForm() {
     removeElement(document.getElementById("team-generated"));
     anotherList = document.createElement("ul");

@@ -14,7 +14,6 @@ h1 {
 li {
     font-size: 40px;
 }
-=======
 .name {
     list-style: none;
 }
@@ -25,8 +24,10 @@ li {
 /* texto para borrar mensaje */
  .tooltip {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
+    width: 155px;
+    font-size: 12px;
+    margin-left: 45px;
+    background-color: #111111c5;
     color: #fff;
     text-align: center;
     padding: 5px 0;
