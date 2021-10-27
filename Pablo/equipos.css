@@ -1,60 +1,137 @@
 
 body {
-    /*background: radial-gradient(circle at top left, #FF5733, #2636FF);*/
-    background-color: #440088;
+    background-color: #004643;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #ffffff;
+    color: #abd1c6;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 115px;
+}
+
+p {
+    font-size: 23px;
 }
 
 h1 {
-    background-color:  #440088;
-    color: #ffff00;
+    align-self: center;
+    color: #fffffe;
     text-align: center;
-    font-size: 85px;
+    font-size: 70px;
     font-style: italic;
     width: 700px;
     padding: 13px;
-    border: 7px dashed #ffff00;
+    border: 7px dashed #f9bc60;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+input {
+    width: 300px;
+    margin-top: 18px;
+    color: #001e1d;
+    font-size: 25px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.make-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+input:focus {
+    outline: solid #e16162;
 }
 
 li {
+    background-color: #fffffe;
+    color: #001e1d;
     text-align: center;
-    width: 165px;
     padding: 10px;
     margin: 15px;
     font-size: 40px;
-    border: 7px dotted #ff1c4d;
+    border: 7px dashed #004643;
+}
+
+.title {
+    color: #fffffe;
+    text-decoration: underline #e16162;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 3px;
+}
+
+.name {
+    text-overflow: ellipsis;
+}
+
+#name-output, #team-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#name-input, #team-input {
+    /*margin-left: 45px;*/
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+}
+
+#name-generated, #team-generated {
+    list-style: none;
+    max-width: 1300px;
+    margin-left: 40px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 label {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 button {
+    height: 30px;
     width: 130px;
+    margin-top: 18px;
     font-size: 16px;
     font-weight: bolder;
-    border-color: #ffff00;
+    border-color: #f9bc60;
     border-radius: 3px;
     border-style: solid;
-    background-color: #ffff00;
-    color: #202020;
-    /*text-shadow: 1px 1px 1px #000;*/
+    background-color: #f9bc60;
+    color: #001e1d;
 }
 
 button:active {
     border-style: solid;
-    border-color: #ffff00;
-    background-color: #ff1c4d;
-    color: #ffffff;
+    border-color: #f9bc60;
+    background-color: #001e1d;
+    color: #f9bc60;
 }
-.name {
-    list-style: none;
+
+#reset {
+    margin-left: 45px;
+    margin-bottom: 18px;
 }
-.name:hover {
-    text-decoration: line-through;
-    
-}
+
 /* texto para borrar mensaje */
  .tooltip {
     visibility: hidden;

@@ -1,5 +1,9 @@
 let nameList = document.getElementsByClassName("name");
 
+function removeElement(element) {
+    element.remove();
+}
+
 function capture() {
     let nombre = document.getElementById("user").value;
     let lista = document.getElementById("name-generated");
@@ -22,7 +26,7 @@ function capture() {
 
     let deleteMessage = document.createElement("div");
     deleteMessage.classList.add('tooltip');
-    deleteMessage.innerHTML = "clicka dos veces para borrar";
+    deleteMessage.innerHTML = "haz doble click para borrar";
     newName.appendChild(deleteMessage);
 
     newName.appendChild(contenido);
@@ -30,22 +34,6 @@ function capture() {
     deleteEvent.value = "removeElement(this)";
     newName.setAttributeNode(deleteEvent);
     lista.appendChild(newName);
-}
-
-
-/*let deleteMessage = document.createAttribute("onmouseenter");
-deleteMessage.value = "overMessage(this)";
-newName.setAttributeNode(deleteMessage);
-}
-function overMessage() {
-let doubleClickDelete = document.createElement("p");
-doubleClickDelete.innerHTML = "doble click para borrar";
-newName.appendChild(doubleClickDelete);
-}*/
-
-
-function removeElement(element) {
-    element.remove();
 }
 
 function teamSorter() {

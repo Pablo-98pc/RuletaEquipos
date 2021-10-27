@@ -10,27 +10,55 @@
 </head>
 
 <body>
-    <h1>Ruleta Equipos</h1>
-    <form onsubmit="return false;">
-        <input type="text" class="username" onkeypress="enterPressed(event)" id="user" placeholder="escriba un nombre"
-            autocomplete="off">
-        <button type="button" id="name-btn" onclick="capture(); clean()">Añadir participante</button>
 
-        <label for="members-amount">Número de personas por equipo</label>
-        <input type="number" name="members-amount" id="members-amount" value="2" min="2">
-        <button type="button" onclick="teamSorter()">Crear equipo</button>
-    </form>
-    <div id="name-output">
-        <ul id="name-generated">
+    <header>
 
-        </ul>
-    </div>
+    </header>
 
-    <div id="team-output">
-        <ul id="team-generated">
+    <main>
+        <h1>Ruleta Equipos</h1>
+        <button type="button" onclick="resetForm()" name="reset" id="reset">Restablecer</button>
+        <form>
+            <div id="name-input">
+                <label for="user">Inscribe a los integrantes de los equipos</label>
+                <div class="make-input">
+                    <input type="text" class="username" onkeypress="enterPressed(event)" id="user"
+                        placeholder="escriba un nombre" autocomplete="off">
+                    <button type="button" id="name-btn" onclick="capture(); clean()">Añadir</button>
+                </div>
+            </div>
 
-        </ul>
-    </div>
+            <img src="rueda-de-la-fortuna.png" />
+
+            <div id="team-input">
+                <label for="members-amount">Selecciona número de personas por equipo</label>
+                <div class="make-input">
+                    <input type="number" name="members-amount" id="members-amount" value="2" min="2">
+                    <button type="button" onclick="teamSorter()">Crear equipo</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="name-output">
+            <div class="title">Integrantes</div>
+            <p>Aún no has insertado un nombre. ¿Qué esperas? </p>
+            <ul id="name-generated">
+
+            </ul>
+        </div>
+
+        <div id="team-output">
+            <div class="title">Equipos</div>
+            <p>No hay ningún equipo... por ahora.</p>
+            <ul id="team-generated">
+
+            </ul>
+        </div>
+
+        <div id="reset">
+
+        </div>
+    </main>
 </body>
 <script src="equipos.js"></script>
 
