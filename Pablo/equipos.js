@@ -1,43 +1,54 @@
-let nameList = document.getElementsByClassName("name");
+let namesArray = [];
+
 
 function removeElement(element) {
+    let toRemove = namesArray.indexOf(element.innerHTML);
+    namesArray.splice(toRemove, 1);
     element.remove();
+}
+
+function rebirthList(list, del, id, father) {
+    let sortedGroup = document.getElementsByClassName(list);
+    if (sortedGroup.length != 0) {
+        document.getElementById(del).remove();
+        anotherList = document.createElement("ul");
+        anotherList.setAttribute("id", id);
+        document.getElementById(father).appendChild(anotherList);
+    }
 }
 
 function capture() {
     let nombre = document.getElementById("user").value;
+    namesArray.push(nombre);
     let lista = document.getElementById("name-generated");
     let newName = document.createElement("li");
     newName.classList.add('name');
-    let contenido = document.createTextNode(nombre);
 
     if (nombre == "") {
         alert("Se requiere un nombre");
         return false;
     }
 
-    let sortedGroup = document.getElementsByClassName("sortedTeam");
-    if (sortedGroup.length != 0) {
-        removeElement(document.getElementById("team-generated"));
-        anotherList = document.createElement("ul");
-        anotherList.setAttribute("id", "team-generated");
-        document.getElementById("team-output").appendChild(anotherList);
-    }
+    rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
 
-    let deleteMessage = document.createElement("div");
-    deleteMessage.classList.add('tooltip');
-    deleteMessage.innerHTML = "haz doble click para borrar";
-    newName.appendChild(deleteMessage);
+    newName.innerHTML = nombre;
 
-    newName.appendChild(contenido);
+    let deleteInstruction = document.createElement("div");
+    deleteInstruction.classList.add('tooltip');
+    deleteInstruction.innerHTML = "haz doble click para borrar";
+    newName.appendChild(deleteInstruction);
+
     let deleteEvent = document.createAttribute("ondblclick");
     deleteEvent.value = "removeElement(this)";
     newName.setAttributeNode(deleteEvent);
+
     lista.appendChild(newName);
 }
 
 function teamSorter() {
-    let teamMembers = Array.from(nameList);
+    rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
+
+    let teamMembers = Array.from(namesArray);
     let membersAmount = document.getElementById("members-amount").value;
     let team = [];
     let teamsList = document.getElementById("team-generated");
@@ -53,7 +64,7 @@ function teamSorter() {
 
     while (teamMembers.length != 0) {
         let randomIndex = Math.floor(Math.random() * teamMembers.length);
-        let member = teamMembers[randomIndex].innerHTML;
+        let member = teamMembers[randomIndex]
         team.push(member);
         teamMembers.splice(randomIndex, 1);
         if (team.length == membersAmount) {
@@ -90,13 +101,7 @@ function clean() {
 }
 
 function resetForm() {
-    removeElement(document.getElementById("team-generated"));
-    anotherList = document.createElement("ul");
-    anotherList.setAttribute("id", "team-generated");
-    document.getElementById("team-output").appendChild(anotherList);
-    removeElement(document.getElementById("name-generated"));
-    anotherNameList = document.createElement("ul");
-    anotherNameList.setAttribute("id", "name-generated");
-    document.getElementById("name-output").appendChild(anotherNameList);
-
+    rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
+    rebirthList("name", "name-generated", "name-generated", "name-output");
+    namesArray = [];
 }
