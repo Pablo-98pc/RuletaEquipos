@@ -1,33 +1,71 @@
 
 body {
-    background-color: #004643;
+    margin: 15px;
+    background-color: #ff5470;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #abd1c6;
+    color: #1b2d45;
 }
 
+header {
+    
+    background-color: #f2f4f6;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo img {
+    margin-left: 25px;
+    width: 85px;
+    height: 85px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+nav li {
+    margin-right: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 2px 2px 1px #fde24f;
+}
 main {
+    background-color: #f2f4f6;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-img {
+main img {
     width: 115px;
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
-p {
+.text {
     font-size: 23px;
 }
 
 h1 {
-    align-self: center;
-    color: #fffffe;
+    color: #00214d;
     text-align: center;
-    font-size: 70px;
+    font-size: 40px;
     font-style: italic;
-    width: 700px;
+    margin-left: 25px;
+    width: 340px;
     padding: 13px;
-    border: 7px dashed #f9bc60;
+    border: 7px dashed #fde24f;
 }
 
 form {
@@ -40,7 +78,7 @@ form {
 input {
     width: 300px;
     margin-top: 18px;
-    color: #001e1d;
+    color: #00214d;
     font-size: 25px;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -54,22 +92,22 @@ input {
 }
 
 input:focus {
-    outline: solid #e16162;
+    outline: solid #fde24f;
 }
 
-li {
+.name, .sortedTeam {
     background-color: #fffffe;
-    color: #001e1d;
+    color: #00214d;
     text-align: center;
     padding: 10px;
     margin: 15px;
     font-size: 40px;
-    border: 7px dashed #004643;
+    border: 7px dotted #00ebc7;
 }
 
 .title {
-    color: #fffffe;
-    text-decoration: underline #e16162;
+    color: #00214d;
+    text-decoration: underline #ff5470;
     font-size: 50px;
     margin-top: 20px;
     margin-bottom: 15px;
@@ -93,8 +131,11 @@ li {
     align-content: space-evenly;
 }
 
-#name-generated, #team-generated {
+li {
     list-style: none;
+}
+
+#name-generated, #team-generated {
     max-width: 1300px;
     margin-left: 40px;
     align-self: flex-start;
@@ -113,18 +154,18 @@ button {
     margin-top: 18px;
     font-size: 16px;
     font-weight: bolder;
-    border-color: #f9bc60;
+    border-color: #00ebc7;
     border-radius: 3px;
     border-style: solid;
-    background-color: #f9bc60;
-    color: #001e1d;
+    background-color: #00ebc7;
+    color: #00214d;
 }
 
 button:active {
     border-style: solid;
-    border-color: #f9bc60;
-    background-color: #001e1d;
-    color: #f9bc60;
+    border-color: #00ebc7;
+    background-color: #00214d;
+    color: #00ebc7;
 }
 
 #reset {

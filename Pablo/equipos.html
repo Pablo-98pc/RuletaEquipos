@@ -12,11 +12,21 @@
 <body>
 
     <header>
-
+        <div class="logo">
+            <h1>Ruleta Equipos</h1>
+            <img src="unido.png" alt="">
+        </div>
+        <nav>
+            <ul>
+                <li>Inicio</li>
+                <li>Crear</li>
+                <li>Sobre nosotros</li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <h1>Ruleta Equipos</h1>
+
         <button type="button" onclick="resetForm()" name="reset" id="reset">Restablecer</button>
         <form>
             <div id="name-input">
@@ -28,7 +38,7 @@
                 </div>
             </div>
 
-            <img src="rueda-de-la-fortuna.png" />
+            <img src="rueda-de-la-fortuna-color.png" />
 
             <div id="team-input">
                 <label for="members-amount">Selecciona número de personas por equipo</label>
@@ -41,7 +51,7 @@
 
         <div id="name-output">
             <div class="title">Integrantes</div>
-            <p>Aún no has insertado un nombre. ¿Qué esperas? </p>
+            <p class="text">Aún no has insertado un nombre. ¿Qué esperas? </p>
             <ul id="name-generated">
 
             </ul>
@@ -49,7 +59,7 @@
 
         <div id="team-output">
             <div class="title">Equipos</div>
-            <p>No hay ningún equipo... por ahora.</p>
+            <p class="text">No hay ningún equipo... por ahora.</p>
             <ul id="team-generated">
 
             </ul>
