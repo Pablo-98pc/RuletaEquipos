@@ -1,10 +1,9 @@
 let namesArray = [];
 
-
-function removeElement(element) {
-    let toRemove = namesArray.indexOf(element.innerHTML);
+function removeElement(participant) {
+    let toRemove = namesArray.indexOf(participant.innerHTML);
     namesArray.splice(toRemove, 1);
-    element.remove();
+    participant.remove();
 }
 
 function rebirthList(list, del, id, father) {
@@ -18,20 +17,27 @@ function rebirthList(list, del, id, father) {
 }
 
 function capture() {
-    let nombre = document.getElementById("user").value;
-    namesArray.push(nombre);
-    let lista = document.getElementById("name-generated");
-    let newName = document.createElement("li");
-    newName.classList.add('name');
-
-    if (nombre == "") {
-        alert("Se requiere un nombre");
-        return false;
-    }
 
     rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
 
-    newName.innerHTML = nombre;
+    let userName = document.getElementById("user").value;
+
+    if (namesArray.includes(userName)){
+        alert("No puede haber dos nombres iguales.")
+        return false;
+    }
+    if (userName == "") {
+        alert("Se requiere un nombre.");
+        return false;
+    }
+
+    namesArray.push(userName);
+    let nameList = document.getElementById("name-generated");
+    let newName = document.createElement("li");
+    newName.classList.add('name');
+    newName.innerHTML = userName;
+
+    document.getElementsByClassName("message")[0].style.display = 'none';
 
     let deleteInstruction = document.createElement("div");
     deleteInstruction.classList.add('tooltip');
@@ -42,10 +48,11 @@ function capture() {
     deleteEvent.value = "removeElement(this)";
     newName.setAttributeNode(deleteEvent);
 
-    lista.appendChild(newName);
+    nameList.appendChild(newName);
 }
 
 function teamSorter() {
+
     rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
 
     let teamMembers = Array.from(namesArray);
@@ -61,6 +68,8 @@ function teamSorter() {
         alert("¡No puedes hacer equipos con tan poca gente! Consigue más personas o reduce los equipos.");
         return false;
     }
+
+    document.getElementsByClassName("message")[1].style.display = 'none';
 
     while (teamMembers.length != 0) {
         let randomIndex = Math.floor(Math.random() * teamMembers.length);
@@ -104,4 +113,6 @@ function resetForm() {
     rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
     rebirthList("name", "name-generated", "name-generated", "name-output");
     namesArray = [];
+    document.getElementsByClassName("message")[0].style.display = 'inline';
+    document.getElementsByClassName("message")[1].style.display = 'inline';
 }

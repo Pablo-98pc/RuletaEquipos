@@ -7,7 +7,6 @@ body {
 }
 
 header {
-    
     background-color: #f2f4f6;
     margin-bottom: 15px;
     display: flex;
@@ -20,6 +19,17 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+h1 {
+    color: #00214d;
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
+    margin-left: 25px;
+    width: 340px;
+    padding: 13px;
+    border: 7px dashed #fde24f;
 }
 
 .logo img {
@@ -40,11 +50,25 @@ nav li {
     font-weight: bold;
     text-shadow: 2px 2px 1px #fde24f;
 }
+
+
 main {
     background-color: #f2f4f6;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+#reset {
+    margin-left: 45px;
+    margin-bottom: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
 }
 
 main img {
@@ -53,26 +77,21 @@ main img {
     margin-right: 0px;
 }
 
-.text {
-    font-size: 23px;
-}
-
-h1 {
-    color: #00214d;
-    text-align: center;
-    font-size: 40px;
-    font-style: italic;
-    margin-left: 25px;
-    width: 340px;
-    padding: 13px;
-    border: 7px dashed #fde24f;
-}
-
-form {
+.make-input {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: center;
+}
+
+#name-input, #team-input {
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+}
+
+label {
+    font-size: 30px;
 }
 
 input {
@@ -84,68 +103,8 @@ input {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.make-input {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-}
-
 input:focus {
     outline: solid #fde24f;
-}
-
-.name, .sortedTeam {
-    background-color: #fffffe;
-    color: #00214d;
-    text-align: center;
-    padding: 10px;
-    margin: 15px;
-    font-size: 40px;
-    border: 7px dotted #00ebc7;
-}
-
-.title {
-    color: #00214d;
-    text-decoration: underline #ff5470;
-    font-size: 50px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    padding: 3px;
-}
-
-.name {
-    text-overflow: ellipsis;
-}
-
-#name-output, #team-output {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#name-input, #team-input {
-    /*margin-left: 45px;*/
-    display: flex;
-    flex-direction: column;
-    align-content: space-evenly;
-}
-
-li {
-    list-style: none;
-}
-
-#name-generated, #team-generated {
-    max-width: 1300px;
-    margin-left: 40px;
-    align-self: flex-start;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-label {
-    font-size: 30px;
 }
 
 button {
@@ -168,13 +127,32 @@ button:active {
     color: #00ebc7;
 }
 
-#reset {
-    margin-left: 45px;
-    margin-bottom: 18px;
+
+.title {
+    color: #00214d;
+    text-decoration: underline #ff5470;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 3px;
 }
 
-/* texto para borrar mensaje */
- .tooltip {
+.message {
+    font-size: 23px;
+}
+
+.name, .sortedTeam {
+    background-color: #fffffe;
+    color: #00214d;
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+    font-size: 40px;
+    border: 7px dotted #00ebc7;
+    text-overflow: ellipsis;
+}
+
+.tooltip {
     visibility: hidden;
     width: 155px;
     font-size: 12px;
@@ -182,14 +160,34 @@ button:active {
     background-color: #111111c5;
     color: #fff;
     text-align: center;
-    padding: 5px 0;
+    padding: 5px;
     border-radius: 6px;
     position: absolute;
     z-index: 1;
-  }
+}
   
-
-  .name:hover .tooltip {
+.name:hover .tooltip {
     visibility: visible;
-  }
+}
+
+#name-output, #team-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+#name-generated, #team-generated {
+    max-width: 1300px;
+    margin-left: 40px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
   
