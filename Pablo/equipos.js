@@ -1,9 +1,9 @@
 let namesArray = [];
 
-function removeElement(participant) {
-    let toRemove = namesArray.indexOf(participant.innerHTML);
+function removeElement() {
+    let toRemove = namesArray.indexOf(this.innerHTML);
     namesArray.splice(toRemove, 1);
-    participant.remove();
+    this.remove();
 }
 
 function rebirthList(list, del, id, father) {
@@ -23,7 +23,7 @@ function capture() {
     let userName = document.getElementById("user").value;
 
     if (namesArray.includes(userName)){
-        alert("No puede haber dos nombres iguales.")
+        alert("No puede haber dos nombres iguales.");
         return false;
     }
     if (userName == "") {
@@ -44,9 +44,7 @@ function capture() {
     deleteInstruction.innerHTML = "haz doble click para borrar";
     newName.appendChild(deleteInstruction);
 
-    let deleteEvent = document.createAttribute("ondblclick");
-    deleteEvent.value = "removeElement(this)";
-    newName.setAttributeNode(deleteEvent);
+    newName.addEventListener('dblclick', removeElement);
 
     nameList.appendChild(newName);
 }
@@ -55,7 +53,7 @@ function teamSorter() {
 
     rebirthList("sortedTeam", "team-generated", "team-generated", "team-output");
 
-    let teamMembers = Array.from(namesArray);
+    let teamMembers = [...namesArray];
     let membersAmount = document.getElementById("members-amount").value;
     let team = [];
     let teamsList = document.getElementById("team-generated");
